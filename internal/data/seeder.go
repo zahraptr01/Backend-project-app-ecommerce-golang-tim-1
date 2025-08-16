@@ -28,6 +28,7 @@ func SeedAll(db *gorm.DB) error {
 func dataSeeds() []interface{} {
 	return []interface{}{
 		entity.SeedUsers(),
+		entity.SeedCustomers(),
 		entity.SeedAddresses(),
 		entity.SeedCarts(),
 		entity.SeedOrders(),

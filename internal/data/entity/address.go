@@ -11,12 +11,24 @@ type Address struct {
 }
 
 // SeedAddresses returns default addresses for seeding
+// func SeedAddresses() []Address {
+// 	return []Address{
+// 		{
+// 			Fullname: "Budi Santoso",
+// 			Email:    "budi@example.com",
+// 			Address:  "Jl. Merdeka No.1, Jakarta",
+// 		},
+// 	}
+// }
+
 func SeedAddresses() []Address {
 	return []Address{
 		{
-			Fullname: "Budi Santoso",
-			Email:    "budi@example.com",
-			Address:  "Jl. Merdeka No.1, Jakarta",
+			CustomerID: 4,
+			Fullname:   "Zahra",
+			Email:      "zahra@example.com",
+			Address:    "Jl. Kebangsaan No.10, Bandung",
+			IsDefault:  true,
 		},
 	}
 }

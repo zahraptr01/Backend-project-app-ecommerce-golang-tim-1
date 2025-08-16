@@ -1,11 +1,14 @@
 package entity
 
-import "project-app-ecommerce-golang-tim-1/pkg/utils"
+import (
+	"project-app-ecommerce-golang-tim-1/pkg/utils"
+	"time"
+)
 
 type User struct {
 	Model
 	Fullname  string     `json:"fullname"`
-	Email     *string    `gorm:"uniqueIndex" json:"email,omitempty"`
+	Email     *string    `gorm:"uniqueIndex;not null" json:"email,omitempty"`
 	Phone     *string    `gorm:"uniqueIndex" json:"phone,omitempty"`
 	Password  string     `json:"password"`
 	Role      string     `json:"role"`
@@ -33,8 +36,22 @@ func SeedUsers() []User {
 			Email:    &email,
 			Password: utils.HashPassword("password123"),
 			Role:     "superadmin",
+			IsActive: true,
 		},
 	}
 
 	return users
+}
+
+func SeedCustomers() []Customer {
+	customers := []Customer{
+		{
+			UserID: 0,
+			Model: Model{
+				CreatedAt: time.Now(),
+				UpdatedAt: time.Now(),
+			},
+		},
+	}
+	return customers
 }
